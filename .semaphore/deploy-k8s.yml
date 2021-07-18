@@ -13,10 +13,11 @@ blocks:
         - name: aws-k8s
         # Import the AWS access key environment variables
         - name: AWS
+        - name: ENV
       env_vars:
         # Adjust with your AWS Region
         - name: AWS_DEFAULT_REGION
-          value: us-west-2
+          value: region
         # Replace value with your ECR URL
         - name: ECR_REGISTRY
           value: 080823892823.dkr.ecr.us-west-2.amazonaws.com/semaphore-demo-ruby-kubernetes
@@ -49,7 +50,7 @@ blocks:
         - name: AWS
       env_vars:
         - name: AWS_DEFAULT_REGION
-          value: us-west-2
+          value: region
         - name: ECR_REGISTRY
           value: 080823892823.dkr.ecr.us-west-2.amazonaws.com/semaphore-demo-ruby-kubernetes
       jobs:
