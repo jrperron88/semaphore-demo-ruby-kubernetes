@@ -10,8 +10,6 @@ blocks:
       secrets:
         # Mount a secret which defines /home/semaphore/.kube/aws-k8s.yaml.
         # By mounting it, we make file available in the job environment.
-        # For info on creating secrets, see:
-        # https://docs.semaphoreci.com/article/66-environment-variables-and-secrets
         - name: aws-k8s
         # Import the AWS access key environment variables
         - name: AWS
@@ -38,8 +36,8 @@ blocks:
             # The auth token only lasts a few hours. So we create a new one each time.
             - sudo pip install awscli
             - export ECR_PASSWORD=$(aws ecr get-login --no-include-email | awk '{print $6}')
-            - kubectl delete secret aws-ecr || true
-            - kubectl create secret docker-registry aws-ecr --docker-server="https://080823892823.dkr.ecr.us-west-2.amazonaws.com/semaphore-demo-ruby-kubernetes" --docker-username=AWS --docker-password="$ECR_PASSWORD"
+            # - kubectl delete secret aws-ecr || true
+            # - kubectl create secret docker-registry aws-ecr --docker-server="https://$ECR_REGISTRY" --docker-username=AWS --docker-password="$ECR_PASSWORD"
             - kubectl get secret aws-ecr
             # envsubst is a tool which will replace $SEMAPHORE_WORKFLOW_ID with
             # its current value. The same variable was used in docker-build.yml
