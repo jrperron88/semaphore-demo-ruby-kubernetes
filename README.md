@@ -8,8 +8,13 @@ Ingredients:
 - Ruby Sinatra as web framework
 - RSpec for tests
 - Packaged in a Docker container
-- Container pushed to Docker Hub registry
-- Deployed to Kubernetes
+- Container pushed to ECS
+- Deployed to EKS
+
+## Choice in Technologies
+ - Wanted to use this exercise as a learning experience - used a guide to get started.
+ - Most experience is in Azure Pipelines or TravisCI for CI/CD and Azure Kubernetes Service for k8s.
+ - Semaphore was free to use and provided the needed CI/CI functionality.
 
 ## Improvements to be made
  - Move configuration to environment variables (region,ECS uri)
