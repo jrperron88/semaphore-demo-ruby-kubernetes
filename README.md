@@ -11,38 +11,12 @@ Ingredients:
 - Container pushed to Docker Hub registry
 - Deployed to Kubernetes
 
-## CI/CD on Semaphore
-
-If you're new to Semaphore, feel free to fork this repository and use it to
-[create a project](https://docs.semaphoreci.com/article/63-your-first-project).
-
-The CI/CD pipeline is defined in `.semaphore` directory and looks like this:
-
-![CI/CD pipeline on Semaphore](pipeline.png)
-
-## Local application setup
-
-To run the microservice:
-
-```
-bundle install --path vendor/bundle
-bundle exec rackup
-```
-
-To run tests:
-
-```
-bundle exec rspec
-```
-
-To build and run Docker container:
-
-```
-docker build -t semaphore-demo-ruby-kubernetes .
-docker run -p 80:4567 semaphore-demo-ruby-kubernetes
-curl localhost
-> hello world :))
-```
+## Improvements to be made
+ - Move configuration to environment variables (region,ECS uri)
+ - Develop a system to not use latest with each image to aid with rollback strategy
+ - Develop a rollback strategy
+ - Use IaC for EKS instead of relying on eksctl for deployment
+ - Configure EKS cluster to scale with traffic
 
 ## License
 
